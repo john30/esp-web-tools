@@ -111,7 +111,9 @@ export const flash = async (
     const blob = await resp.blob();
 
     return new Promise<ArrayBuffer>((resolve) => {
-      reader.addEventListener("load", () => resolve(reader.result as ArrayBuffer));
+      reader.addEventListener("load", () =>
+        resolve(reader.result as ArrayBuffer),
+      );
       reader.readAsArrayBuffer(blob);
     });
   });
